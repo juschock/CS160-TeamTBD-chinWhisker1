@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'shavingstore.payment',
     'shavingstore.events',
     'shavingstore.shaver_mgt',
+    'shavingstore.cart',
 ]
 
 MIDDLEWARE = [

@@ -9,11 +9,13 @@ import sys
 def cart(request):
     return render(request,'cart/cart.html') 
 
+'''
 def pay(request):
     pmt_method_dict = models.fetch_all_pmt_methods_process()
 
     return render(request,'payment/pay.html', {'pmt_method_dict': pmt_method_dict})
-
+'''
+'''
 def help(request):
     contact_name = 'Dustin'
     contact_address = {'sector':'#385','city':'Sabody','planet':'Moon'}
@@ -22,7 +24,8 @@ def help(request):
     # Package up all variables into a dictionary
     contact_info = {'contact_name':contact_name, 'contact_address':contact_address, 'contact_phone':contact_phone, 'contact_hours':contact_hours}
     return render(request,'payment/help.html', contact_info)
-
+'''
+'''
 def add_payment(request):
     title = 'Add a new payment method'
     if request.method == 'POST':
@@ -54,7 +57,8 @@ def add_payment(request):
         form = forms.PaymentForm(auto_id=False)
     # Reference form instance (bound/unbound) is sent to template for rendering
     return render(request,'payment/payment_form.html',{'action':action,'form':form,'title':title})
-
+'''
+'''
 def edit_payment(request):
     id = request.POST.get('id','')
     context = {'card_number':'', 'card_type':''}
@@ -120,7 +124,8 @@ def edit_payment(request):
             action = 'ERROR'
 
     return render(request, 'payment/edit_payment_form.html', {'action': action, 'context':context, 'form': form, 'title': title})
-
+'''
+'''
 def delete_payment(request):
 
     id = request.POST.get('id','')
@@ -135,3 +140,4 @@ def delete_payment(request):
         print("Unexpected error: " + sys.exc_info()[0])
     
     return HttpResponseRedirect('/payment/#mainsection')
+    '''
