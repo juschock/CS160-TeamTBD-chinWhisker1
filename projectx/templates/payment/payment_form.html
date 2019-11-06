@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block header %}
+<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">{{ title }}</h2>
+{% endblock header %}
+
+{% block main%}
+
+<!-- Main Content -->
+
+{% if action == 'POST_SUCCESSFULL' %}
+<div class="alert alert-success" role="alert">
+    The payment method has been added. <a href="/payment/#mainsection" class="alert-link">Go to payment page</a>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% elif action == 'POST_FAILED' %}
+<div class="alert alert-danger" role="alert">
+    Failed to add payment method! Please check the error messages.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <table
+        style="margin-left:auto; margin-right:auto; margin-bottom:50px; border-collapse: separate;border-spacing: 50px 0;">
+        <tr>
+            <td colspan="3">
+                {% if form.non_field_errors %}
+                <div class="row">
+                    <ul>
+                        {% for error in form.non_field_errors %}
+                        <li><div style="color: #FF5733; padding-left: 0.5rem;">{{error}}</div></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </td>
+        </tr>
+        {% for field in form %}
+        <tr>
+            <td>
+                {{ field.label_tag }}
+                {% if field.help_text %}
+                <sup>{{ field.help_text }}</sup>
+                {% endif %}
+            </td>
+            <td>
+                <span class="float-left">{{ field }}</span>
+                <span class="float-left">
+                    {% for error in field.errors %}
+                    <div style="color: #FF5733; padding-left: 0.5rem;">{{error}}</div>
+                    {% endfor %}
+                </span>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+{% endblock%}

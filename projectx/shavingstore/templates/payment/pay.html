@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header %}
+<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Payment</h2>
+{% endblock header %}
+
+{% block main%}
+
+<!-- Main Content -->
+<div class="container">
+    <!-- Main Content -->
+    {% if pmt_method_dict %}
+        <div class="row">
+
+        <!-- Show song thumbnails -->
+        {% for payment in pmt_method_dict.values %}
+
+            {% include "payment/pmt_thumbnail.html" with id=payment.id card_number=payment.card_number card_type=payment.card_type %} 
+            {% include "payment/pmt_popup.html" with id=payment.id card_number=payment.card_number card_type=payment.card_type billing_address=payment.billing_address %}
+
+        {% endfor %}
+
+        </div>
+    {% endif %}
+</div>
+<div style="text-align: center;">
+    <img src="{% static 'apps/payment/payment.png' %}" class="rounded" alt="payment">
+</div>
+
+{% endblock%}
