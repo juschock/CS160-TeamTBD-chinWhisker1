@@ -21,6 +21,8 @@ from django.views.generic import TemplateView
 from shavingstore.shaver_mgt import views as shaver_views
 # For debugging purposes
 from django.conf import settings
+from shavingstore.cart import views as cart_views
+
 
 
 urlpatterns = [
@@ -29,6 +31,7 @@ urlpatterns = [
     url(r'^payment/', include('shavingstore.payment.urls',namespace="payment_ns")),
     url(r'^events/', include('shavingstore.events.urls',namespace="events_ns")),
     url(r'^shaver_mgt/', include('shavingstore.shaver_mgt.urls',namespace="shaver_mgt_ns")),
+    url(r'^cart/$',cart_views.cart),
 ]
 '''
 if settings.DEBUG:

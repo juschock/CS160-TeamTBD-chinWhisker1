@@ -30,8 +30,8 @@ def fetch_cart_process(_id):
     return Cart.objects.get(id=_id)
 
 def edit_process(_id, _card_number, _card_type, _billing_address):
-    Payment.objects.filter(id=_id).update(card_number=_card_number, card_type=_card_type,
+    Cart.objects.filter(id=_id).update(card_number=_card_number, card_type=_card_type,
         billing_address=_billing_address)
 
 def delete_process(_id):
-    Payment.objects.filter(id=_id).delete()
+    Cart.objects.filter(id=_id).delete()

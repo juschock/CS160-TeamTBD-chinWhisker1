@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block main%}
+
+    <!-- Main Section Heading -->
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">My Cart</h2>
+
+    <!-- Icon Divider -->
+    <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+            <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+    </div>
+
+    <!-- Main Content -->
+    <table style="margin-left:auto; margin-right:auto;border-collapse: separate;border-spacing: 50px 0;">
+        <thead>
+            <th>Product Name</th>
+            <th>Quantity</th>
+        </thead>
+        <tr>
+            <td>Banana Juice</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>I can't believe it's banana butter</td>
+            <td>4</td>
+        </tr>
+    </table>
+
+{% endblock%}
