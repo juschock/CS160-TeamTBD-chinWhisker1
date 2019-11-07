@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Payment Assistance</h2>
+{% endblock header %}
+
+{% block main%}
+
+<!-- Main Content -->
+<div style="text-align: center;">
+    <h4>Name: {{contact_name}}</h4>
+    <p>Address: {{contact_address.sector}} {{contact_address.city}},{{contact_address.planet}}</p>
+    <p>Phone numbers: {{contact_phone.0}} and {{contact_phone.1}}</p>
+    <p>Working Hours: {{contact_hours.0.1}}, {{contact_hours.1.1}}, and {{contact_hours.2.1}}</p>
+</div>
+
+{% endblock%}

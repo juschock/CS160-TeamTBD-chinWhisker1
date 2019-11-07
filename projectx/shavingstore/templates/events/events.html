@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block header %}
+<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Special Events</h2>
+{% endblock header %} {% block main%}
+
+<!-- Main Content -->
+{% if events %}
+
+<div style="text-align: center;">
+
+    {% for event in events %}
+
+    <p>{{event}}</p>
+
+    {% empty %}
+
+    <p>There are no ongoing events</p>
+
+    {% endfor %}
+
+</div>
+
+{% endif %} {% endblock%}

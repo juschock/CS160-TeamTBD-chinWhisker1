@@ -1,0 +1,70 @@
+<div class="portfolio-modal modal fade" id="shaverid{{id}}" tabindex="-1" role="dialog" aria-labelledby="shaverid{{id}}Label"
+    aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 800px;" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">
+                    <i class="fas fa-times"></i>
+                </span>
+            </button>
+            <div class="modal-body text-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Title -->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{title}}</h2>
+                            <!-- Icon Divider -->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            <!-- Image -->
+                            <img class="img-fluid rounded mb-5" style="width: 300px;height: 300px;" src="{{shave_image}}" alt="">
+                            <!-- Text -->
+                            <table
+                                style="margin-left:auto; margin-right:auto; margin-bottom:50px; border-collapse: separate;border-spacing: 50px 0;">
+                                <tr>
+                                    <td class="font-weight-bold">Model</td>
+                                    <td>{{model}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold">Color</td>
+                                    <td>{{color}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold">Type</td>
+                                    <td>{{type}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold">Qty</td>
+                                    <td>{{qty}}</td>
+                                </tr>
+                            </table>
+                            <form method="post" action="{% url 'shaver_mgt_ns:editshaver' %}#mainsection" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" name="id" value="{{id}}popup" class="btn btn-warning active">
+                                    <i class="fa fa-pencil fa-fw"></i>
+                                    Edit
+                                </button>
+                            </form>
+                            <form method="post" action="{% url 'shaver_mgt_ns:deleteshaver' %}#mainsection" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" name="id" value="{{id}}popup" class="btn btn-danger active">
+                                <i class="fa fa-trash fa-fw"></i>
+                                Delete
+                                </button>
+                            </form>
+                            <button class="btn btn-primary" href="#" data-dismiss="modal">
+                                <i class="fas fa-times fa-fw"></i>
+                                Close Window
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
